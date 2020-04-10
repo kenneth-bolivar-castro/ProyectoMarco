@@ -1,0 +1,14 @@
+name: marcoproyecto
+recipe: lamp
+proxy:
+  dbms:
+    - dbms-marcoproyecto.lndo.site
+config:
+  webroot: .
+services:
+  dbms:
+    type: phpmyadmin
+    hosts:
+     - database
+
+
