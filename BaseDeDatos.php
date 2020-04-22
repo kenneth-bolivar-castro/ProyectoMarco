@@ -2,16 +2,15 @@
 
 
 $host ='database';
-$username ='lamp';
-$password ='lamp';
-$dbname='lamp';
-$connection = new mysqli($host,$username,$password,$dbname);
-if($connection->connect_errno){
-    echo $connection->connect_error;
-    exit();
+$username ='root';
+$password ='';
+$dbname='ProyectoMarco';
+
+$conection = new mysqli($host,$username,$password,$dbname);
+if(!$conection){
+echo "error en la conexion";
 }
 
-var_dump($connection);
 
 
 ?>                           

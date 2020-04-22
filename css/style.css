@@ -257,7 +257,10 @@ h6,
   height: 2px;
   background: #000;
 }
+.padre {
 
+ 
+}
 .form-control {
  
   border-radius: 0;
@@ -268,14 +271,25 @@ h6,
 
 
 }
+.form-control2 {
+ 
+  border-radius: 0;
+  border: 1px solid transparent;
+  padding-top: 2px !important;
+  padding-bottom: 10px !important;
+  padding-left: 550px;
+
+}
 
 .form-control:active,
 .form-control:focus {
-justify-content:center
+
   background: #eff1f4;
   outline: none;
   box-shadow: none;
   border: 1px solid transparent;
+ 
+
 }
 
 .custom-progress {

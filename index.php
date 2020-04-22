@@ -42,7 +42,7 @@
             <li><a href="about.php">Nosotros</a></li>
             <li><a href="services.php">Servicios</a></li>
             <li><a href="works.php">Trabajos</a></li>
-            <li><a href="registrarse.php">Administradores</a></li>
+            <li><a href="ingreso.php">Administradores</a></li>
           </ul>
         </div>
         <div class="col-md-6 d-none d-md-block  mr-auto">

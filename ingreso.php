@@ -42,7 +42,7 @@
             <li><a href="about.php">Acerca de Nosotros</a></li>
             <li><a href="services.php">Servicios</a></li>
             <li><a href="works.php">Trabajos</a></li>
-            <li><a href="registrarse.php">Portal Administradores</a></li>
+          
           </ul>
         </div>
         <div class="col-md-6 d-none d-md-block  mr-auto">
@@ -75,16 +75,57 @@
     </div>
   </nav>
 
-  <main id="main">
 
-     
+<?php 
+
+$alert='';
+session_start();
+if (!empty($_SESSION['active']))
+ {
+  header('location: Administradores.php');
+}else{
+
+
+if(!empty($_POST))
+{
+   if (empty($_POST['alias'])|| empty($_POST['codigo'])) 
+   {
+     $alert = 'ingrese su alias y codigo';
+
+   }else{
+    require_once "BaseDeDatos.php";
+    $alias = $_POST['alias'];
+    $codigo= $_POST['codigo'];
+
+$query = mysqli_query($conection,"SELECT*FROM Administrador where alias='$alias' and codigo='$codigo'");
+  $result = mysqli_num_rows($query);
+  if ($result>0) 
+  {
+  $data = mysqli_fetch_array($query);
+  $_SESSION['active']=true;
+  $_SESSION['idAdmin']=$data['id_Admin'];
+  $_SESSION['Alias']=$data['Alias'];
+  $_SESSION['Codigo']=$data['Codigo'];
+
+header('location: Administradores.php');
+  }else{
+    $alert ='El alias o el codigo es incorrecto';
+    session_destroy();
+   }
+  }
+}
+}
+ ?>
+
+  <main id="main">
 
         <div class="row" >
           <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
             
-            <form action="forms/Administradores.php" method="post" role="form" class="php-email-form">
+            <form action="" method="post" >
               
-              <div class="row">
+              <div class="padre">
+
                 <div class="col-md-6 form-group">
                   <label for="name">Alias</label>
                   <input type="text" name="alias" class="form-control" id="alias"  data-msg="Ingrese Alias" />
@@ -92,7 +133,7 @@
                 </div>
                
                 <div class="col-md-6 form-group" >
-                  <label for="name">Codigo</label>
+                  <label for="name" >Codigo</label>
                   <input type="text"  name="codigo" id="codigo" class="form-control" data-msg="Ingrese Codigo" />
               
                 </div>
@@ -100,6 +141,7 @@
                 <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Iniciar Sesion">
                 </div>
+                <div class="alert"><?php echo isset($alert) ? $alert : '';?></div>
               </div>
 
             </form>
@@ -110,9 +152,7 @@
 
         </div>
 
-      </div>
-
-    </div>
+ 
   </main>
 
 
