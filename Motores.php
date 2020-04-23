@@ -56,7 +56,7 @@
             <li><a href="about.php">Acerca de Nosotros</a></li>
             <li><a href="services.php">Servicios</a></li>
             <li><a href="works.php">Trabajos</a></li>
-            <li><a href="registrarse.php">Portal Administradores</a></li>
+            <li><a href="ingreso.php"> Administradores</a></li>
           </ul>
         </div>
         <div class="col-md-6 d-none d-md-block  mr-auto">
@@ -119,14 +119,9 @@ $lista=mysqli_fetch_all($query,MYSQLI_ASSOC);
     <td><?php echo $items['Precio'] ?></td>
     <td>
 <form action="" method="post">
-<input type="hidden" name="IDAD"  value="<?php echo $items['ID_Motor']; ?>">
-<input type="hidden" name="Foto" value="<?php echo $items['Foto']; ?>">
-<input type="hidden" name="Nombre" value="<?php echo $items['Nombre']; ?>">
-<input type="hidden" name="Descripcion" value="<?php echo $items['Descripcion']; ?>">
-<input type="hidden" name="Precio" value="<?php echo $items['Precio']; ?>">
 
       <input type="submit" value="Ver" name="accion">
-   
+
 
     </form>
 
