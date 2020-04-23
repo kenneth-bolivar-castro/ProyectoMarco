@@ -194,7 +194,7 @@
         <div class="row">
 
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-cube la-3x mb-4"></span>
+            <span class="la la- la-3x mb-4"></span>
             <h4 class="h4 mb-2">Mecancia General</h4>
             <p>Revision General del Vehiculo</p>
             <ul class="list-unstyled list-line">
@@ -205,7 +205,7 @@
             </ul>
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-mobile la-3x mb-4"></span>
+            <span class="la la-mo la-3x mb-4"></span>
             <h4 class="h4 mb-2">Reprogramacion de computadoras</h4>
             <p>Optimizacion de computadores para mejorar el rendimiento de su vehiculo</p>
             <ul class="list-unstyled list-line">
@@ -216,7 +216,7 @@
             </ul>
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-image la-3x mb-4"></span>
+            <span class="la la-i la-3x mb-4"></span>
             <h4 class="h4 mb-2">Seguimiento y Garantia de los trabajos</h4>
             <p>Damos seguimiento y garantia a cada uno de nuestros trabajos  </p>
             <ul class="list-unstyled list-line">
@@ -227,7 +227,7 @@
             </ul>
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-search la-3x mb-4"></span>
+            <span class="la la la-3x mb-4"></span>
             <h4 class="h4 mb-2">Alistar y LLevar Vehiculos a RTV</h4>
             <p>Le facilitamos la opcion de llevar us vehiculo a RTV con la certeza de pasar</p>
             <ul class="list-unstyled list-line">

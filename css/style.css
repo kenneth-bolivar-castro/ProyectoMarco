@@ -259,7 +259,11 @@ h6,
 }
 .padre {
 
- 
+   
+}
+.hijo{
+
+   padding-left: 500px;
 }
 .form-control {
  

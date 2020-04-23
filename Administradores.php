@@ -79,7 +79,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantSYD.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Suspension y Direccion" >
                 </div>
@@ -87,7 +87,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantFrenos.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Frenos" >
                 </div>
@@ -95,7 +95,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantMotores.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Motores" >
                 </div>
@@ -103,7 +103,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantElectrico.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Electricos" >
                 </div>
@@ -111,7 +111,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantEscapes.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Escapes" >
                 </div>
@@ -119,7 +119,7 @@
 
 <br>
 
-            <form action="index.php" >
+            <form action="MantTuning.php" >
                <div class="col-md-6 form-group">
                   <input type="submit" class="readmore d-block w-100" value="Mantenimiento Tuning" >
                 </div>

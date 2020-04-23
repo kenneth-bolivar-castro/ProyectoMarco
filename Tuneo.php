@@ -79,7 +79,43 @@
 
 
   </main>
+</nav>
 
+<?php
+
+  include 'BaseDeDatos.php';
+
+ $query=mysqli_query($conection,"SELECT*FROM SYD");
+$lista=mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+ foreach ($lista as $items) { ?>
+  <tr>
+    <td><?php echo $items['ID_SYD'] ?></td>
+    <td><img class="img-thumbnail" width="100px" src="../img/<?php echo $items['Foto'];?>"/></td>
+    <td><?php echo $items['Nombre'] ?></td>
+    <td><?php echo $items['Descripcion'] ?></td>
+    <td><?php echo $items['Precio'] ?></td>
+    <td>
+<form action="" method="post">
+<input type="hidden" name="IDAD"  value="<?php echo $items['ID_SYD']; ?>">
+<input type="hidden" name="Foto" value="<?php echo $items['Foto']; ?>">
+<input type="hidden" name="Nombre" value="<?php echo $items['Nombre']; ?>">
+<input type="hidden" name="Descripcion" value="<?php echo $items['Descripcion']; ?>">
+<input type="hidden" name="Precio" value="<?php echo $items['Precio']; ?>">
+
+      <input type="submit" value="seleccionar" name="accion">
+      <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+
+    </form>
+
+
+    </td>
+
+  </tr>
+
+<?php } ?>
+</table>
+</div>
 
 
   <!-- Vendor JS Files -->

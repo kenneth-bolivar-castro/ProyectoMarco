@@ -1,3 +1,42 @@
+
+  <?php 
+
+  include 'BaseDeDatos.php';
+
+$txtID=(isset($_POST['IDAD']))?$_POST['IDAD']:"";
+$txtAlias=(isset($_POST['alias']))?$_POST['alias']:"";
+$txtCodigo=(isset($_POST['codigo']))?$_POST['codigo']:"";
+$accion=(isset($_POST['accion']))?$_POST['accion']:"";
+ switch ($accion) {
+
+    case "btnAgregar":
+
+$query =mysqli_query($conection,"INSERT INTO `Administrador` (`Alias`, `Codigo`)
+                           VALUES ('$txtAlias', '$txtCodigo')");
+     echo '<script language="javascript">alert("Agregado Nuevo Administrador");</script>';
+   header('location: MantAdmins.php');
+    break;
+     case "btnModificar":
+
+ $query =mysqli_query($conection," UPDATE `Administrador` SET `Alias` = '$txtAlias', `Codigo` = '$txtCodigo' WHERE `Administrador`.`ID_Admin` = '$txtID'");
+ echo '<script language="javascript">alert("Administrador Modificado Correctamente");</script>';
+header('location: MantAdmins.php');
+
+    break;
+     case "btnEliminar":
+
+$query =mysqli_query($conection,"DELETE FROM `Administrador` WHERE `Administrador`.`ID_Admin` = $txtID");
+   echo '<script language="javascript">alert("Agregado Nuevo Administrador");</script>';
+  header('location: MantAdmins.php');
+
+    break;
+     case "btnRegresar":
+    header('location: Administradores.php');
+    break;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,22 +47,14 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,700&display=swap"
-    rel="stylesheet">
+
 
   <!-- Bootstrap CSS File -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-  <!-- Vendor CSS Files -->
-  <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
-  <link href="vendor/aos/aos.css" rel="stylesheet">
-  <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
@@ -31,28 +62,85 @@
 
 </head>
 
+
 <body>
+<div class="container">
+  <br>
+  <h1>Mantenimiento para Administradores</h1>
+  <br>
+  <form action="" method="post" enctype="multipart/form-data">
+
+   <label for="name">ID ADMIN</label>
+   <input type="text"  name="IDAD" readonly="readonly"  value="<?php echo $txtID;?>" class="form-control"  />
+       
+   <label for="name">Alias</label>
+   <input type="text" name="alias" value="<?php echo $txtAlias;?>" class="form-control"/>
+
+    <label for="name">Codigo</label>
+   <input type="text" name="codigo" value="<?php echo $txtCodigo;?>" class="form-control"/>
+
 <br>
- 
-            <form action="Administradores.php" >
-               <div class="col-md-6 form-group">
-                  <input type="submit" class="readmore d-block w-50" value="Regresar" >
-                </div>
-</form> 
+<button value="btnAgregar" type="submit" name="accion" >Agregar</button>
+<button value="btnModificar" type="submit" name="accion">Modificar</button>
+<button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+<button value="btnRegresar" type="submit" name="accion">Regresar</button>
+
+  </form>
+<br>
+<div class="row">  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+         <th>Alias</th>
+          <th>Codigo</th>
+          <th>Acciones</th>
+      </tr>
+    </thead>
+
+
+
+<?php
+
+ $query=mysqli_query($conection,"SELECT*FROM Administrador");
+$listaAdmin=mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+ foreach ($listaAdmin as $admins) { ?>
+  <tr>
+    <td><?php echo $admins['ID_Admin'] ?></td>
+    <td><?php echo $admins['Alias'] ?></td>
+    <td><?php echo $admins['Codigo'] ?></td>
+    <td>
+<form action="" method="post">
+<input type="hidden" name="IDAD"  value="<?php echo $admins['ID_Admin']; ?>">
+<input type="hidden" name="alias" value="<?php echo $admins['Alias']; ?>">
+<input type="hidden" name="codigo" value="<?php echo $admins['Codigo']; ?>">
+
+      <input type="submit" value="seleccionar" name="accion">
+      <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+
+    </form>
+
+
+    </td>
+
+  </tr>
+
+<?php } ?>
+</table>
+</div>
+
+</div>
+
+
 
 
   <!-- Vendor JS Files -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/jquery/jquery-migrate.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="vendor/easing/easing.min.js"></script>
-  <script src="vendor/php-email-form/validate.js"></script>
-  <script src="vendor/isotope/isotope.pkgd.min.js"></script>
-  <script src="vendor/aos/aos.js"></script>
-  <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 
-  <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
+
 
 </body>
 
