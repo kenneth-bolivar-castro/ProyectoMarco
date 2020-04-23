@@ -11,6 +11,12 @@
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,700&display=swap"
@@ -83,11 +89,24 @@
   </main>
 
 </nav>
+<br>
+<div class="row">  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+         <th>Foto</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+      </tr>
+    </thead>
+
+
 
 <?php
 
 include "BaseDeDatos.php";
-
  $query=mysqli_query($conection,"SELECT*FROM Motores");
 $lista=mysqli_fetch_all($query,MYSQLI_ASSOC);
 
@@ -106,8 +125,8 @@ $lista=mysqli_fetch_all($query,MYSQLI_ASSOC);
 <input type="hidden" name="Descripcion" value="<?php echo $items['Descripcion']; ?>">
 <input type="hidden" name="Precio" value="<?php echo $items['Precio']; ?>">
 
-      <input type="submit" value="seleccionar" name="accion">
-      <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+      <input type="submit" value="Ver" name="accion">
+   
 
     </form>
 

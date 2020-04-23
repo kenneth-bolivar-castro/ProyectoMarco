@@ -15,6 +15,12 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,700&display=swap"
     rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +83,69 @@
         <span></span>
       </a>
 
-
+</Nav>
   </main>
+
+<br>
+<div class="row">  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+         <th>Foto</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+      </tr>
+    </thead>
+
+
+
+<?php
+
+include "BaseDeDatos.php";
+
+ $query=mysqli_query($conection,"SELECT*FROM Frenos");
+$lista=mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+ foreach ($lista as $items) { ?>
+  <tr>
+    <td><?php echo $items['ID_Frenos'] ?></td>
+    <td><img class="img-thumbnail" width="100px" src="../img/<?php echo $items['Foto'];?>"/></td>
+    <td><?php echo $items['Nombre'] ?></td>
+    <td><?php echo $items['Descripcion'] ?></td>
+    <td><?php echo $items['Precio'] ?></td>
+    <td>
+<form action="" method="post">
+<input type="hidden" name="IDAD"  value="<?php echo $items['ID_Frenos']; ?>">
+<input type="hidden" name="Foto" value="<?php echo $items['Foto']; ?>">
+<input type="hidden" name="Nombre" value="<?php echo $items['Nombre']; ?>">
+<input type="hidden" name="Descripcion" value="<?php echo $items['Descripcion']; ?>">
+<input type="hidden" name="Precio" value="<?php echo $items['Precio']; ?>">
+
+      <input type="submit" value="Ver" name="accion">
+
+
+    </form>
+
+
+    </td>
+
+  </tr>
+
+<?php } ?>
+</table>
+</div>
+
+</div>
+
+
+
+
+  <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 
 
 
